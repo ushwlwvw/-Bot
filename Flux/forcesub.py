@@ -12,12 +12,12 @@ async def fsub(Client, Message):
         except UserNotParticipant:
             await Client.send_message(
                 id,
-                "Join My Updates Channel To Use Me!",
+                "انضم إلى قناة تحديثاتي لتستخدمني!",
                 reply_to_message_id = Message.message_id,
                 reply_markup = InlineKeyboardMarkup(
                     [ 
                         [ 
-                            InlineKeyboardButton("Join", url=f"https://t.me/{Config.UPDATES_CHANNEL}") 
+                            InlineKeyboardButton("انضمام", url=f"https://t.me/{Config.UPDATES_CHANNEL}") 
                         ]   
                     ]
                 )
