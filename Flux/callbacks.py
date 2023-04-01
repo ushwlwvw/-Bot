@@ -36,22 +36,22 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
         await bot.edit_message_text(
             chat_id=chat_id,
             message_id=message_id,
-            text="**Here's How to use me**\n" + Data.HELP,
+            text = "** اليك كيفية الاستخدام** \ n"  +  البيانات . مساعدة ،
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(Data.home_buttons),
         )
-    elif query == "generate":
+    elif query == "انشاء":
         await callback_query.message.reply(
-            "Please choose the python library you want to generate string session for",
+            "الرجاء اختيار مكتبة التي تريد إنشاء جلسة سلسلة عليها",
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
-                InlineKeyboardButton("Telethon", callback_data="telethon")
+                InlineKeyboardButton("بايروجرام", callback_data="بايروجرام"),
+                InlineKeyboardButton("تيليثون", callback_data="تيليثون")
             ]])
         )
-    elif query in ["pyrogram", "telethon"]:
+    elif query in ["بايروجرام", "تيليثون"]:
         await callback_query.answer()
         try:
-            if query == "pyrogram":
+            if query == "بايروجرام":
                 await generate_session(bot, callback_query.message)
             else:
                 await generate_session(bot, callback_query.message, telethon=True)
@@ -61,7 +61,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
             await callback_query.message.reply(ERROR_MESSAGE.format(str(e)))
 
 
-ERROR_MESSAGE = "Oops! An exception occurred! \n\n**Error** : {} " \
-            "\n\nPlease visit @NotrealPranay if this message doesn't contain any " \
-            "sensitive information and you if want to report this as " \
-            "this error message is not being logged by us!"
+ERROR_MESSAGE = "أُووبس! حدث استثناء! \n\n**خطأ** : {} " \
+            "\n\nالرجاء زيارة  @H_M_Dr إذا كانت هذه الرسالة لا تحتوي على أي " \
+            "معلومات حساسة وأنت إذا كنت تريد الإبلاغ عن هذا كـ " \
+            ""
